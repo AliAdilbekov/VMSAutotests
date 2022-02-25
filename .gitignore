@@ -39,3 +39,7 @@ dist/**/*
 
 # ignore yarn.lock
 yarn.lock
+test-results/
+playwright-report/
+test-results/
+playwright-report/
