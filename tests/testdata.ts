@@ -22,14 +22,19 @@ export const user = {
     passwordspecsymbol: '!@#$%^&*()_+',
     emailnumber: '1234567890',
     
-};
+}
 export const OrganizationClient = {
     titleOrg:'МВД РК',
     binOrg:'101010101011',
     titleObj:'КУИС',
     binObj:'101010101012',
-    titleCam:'PTZ-FOR-USE',
-    ipCam:'172.27.211.250',
+    camTitle:'PTZ-FOR-USE',
+    camIP:'172.27.211.250',
     testText: 'testMiras', 
-
+    emptyField: '',
+    fix:'FIX',
+    PTZ:'PTZ',
+    rec:'REC',
+    mon:'Mon',
+    offline:'OFF',
 }

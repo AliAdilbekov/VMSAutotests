@@ -108,3 +108,24 @@ export class CameraPage {
         await this.page.fill('.MuiInputBase-input',ipCam);
 
     }
+    //Клик по фильтрам 
+    async clickFiltrButton() {
+        await this.page.click('.filter-icon-gis');
+    }
+    async clickFiltrPTZBtn() {
+        await this.page.click('MuiChip-label');
+    }
+    async clickFiltrFIXBtn() {
+        await this.page.click('MuiChip-label');
+    }
+    async clickFiltrRecBtn() {
+        await this.page.click('MuiChip-label');
+    }
+    async clickFiltrMonBtn() {
+        await this.page.click('MuiChip-label');
+    }
+    async clickFiltrOffBtn() {
+        await this.page.click('MuiChip-label');
+    }
+
+}
