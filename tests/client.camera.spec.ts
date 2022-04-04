@@ -5,7 +5,7 @@ import { HomePage } from '../pages/client-home-page';
 import { LoginPage } from '../pages/client-login-page';
 import { ArchivePage } from '../pages/client-archive-page';
 import { CameraPage } from '../pages/client-camera-page';
-
+import {OrganizationClient} from './testdata';
  // test.beforeAll(async ({ page }) => {
    // const homepage = new HomePage(page);
     //await homepage.open();
@@ -132,4 +132,65 @@ import { CameraPage } from '../pages/client-camera-page';
      await new CameraPage(page).openCameraTree();
      await new CameraPage(page).searchInputFieldCamIp(OrganizationClient.ipCam);
      await expect(locator).toContainText(OrganizationClient.ipCam);
+});
+// Проверка фильтров в дереве
+test('Check Filtr', async ({ page }) => {
+  const homepage = new HomePage(page);
+  const locator = page.locator('.MuiAlert-message'); 
+  await homepage.open();
+  await new LoginPage(page).login(user.email, user.password)
+  await new CameraPage(page).openCameraTree();
+  await new CameraPage(page).clickFiltrButton();
+  await expect(locator).toContainText('MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-item MuiGrid-wrap-xs-nowrap');
+});
+test('Check Filtr Fix', async ({ page }) => {
+  const homepage = new HomePage(page);
+  const locator = page.locator('.MuiAlert-message'); 
+  await homepage.open();
+  await new LoginPage(page).login(user.email, user.password)
+  await new CameraPage(page).openCameraTree();
+  await new CameraPage(page).clickFiltrButton();
+  await new CameraPage(page).clickFiltrFIXBtn();
+  await expect(locator).toContainText(OrganizationClient.fix);
+});
+test('Check Filtr Ptz', async ({ page }) => {
+  const homepage = new HomePage(page);
+  const locator = page.locator('.MuiAlert-message'); 
+  await homepage.open();
+  await new LoginPage(page).login(user.email, user.password)
+  await new CameraPage(page).openCameraTree();
+  await new CameraPage(page).clickFiltrButton();
+  await new CameraPage(page).clickFiltrPTZBtn();
+  await expect(locator).toContainText(OrganizationClient.PTZ);
+});
+test('Check Filtr Rec', async ({ page }) => {
+  const homepage = new HomePage(page);
+  const locator = page.locator('.MuiAlert-message'); 
+  await homepage.open();
+  await new LoginPage(page).login(user.email, user.password)
+  await new CameraPage(page).openCameraTree();
+  await new CameraPage(page).clickFiltrButton();
+  await new CameraPage(page).clickFiltrRecBtn();
+  await expect(locator).toContainText(OrganizationClient.rec);
+});
+test('Check Filtr Mon', async ({ page }) => {
+  const homepage = new HomePage(page);
+  const locator = page.locator('.MuiAlert-message'); 
+  await homepage.open();
+  await new LoginPage(page).login(user.email, user.password)
+  await new CameraPage(page).openCameraTree();
+  await new CameraPage(page).clickFiltrButton();
+  await new CameraPage(page).clickFiltrMonBtn();
+  await expect(locator).toContainText(OrganizationClient.mon);
+});
+
+test('Check Filtr Offline', async ({ page }) => {
+  const homepage = new HomePage(page);
+  const locator = page.locator('.MuiAlert-message'); 
+  await homepage.open();
+  await new LoginPage(page).login(user.email, user.password)
+  await new CameraPage(page).openCameraTree();
+  await new CameraPage(page).clickFiltrButton();
+  await new CameraPage(page).clickFiltrOffBtn();
+  await expect(locator).toContainText(OrganizationClient.offline);
 });

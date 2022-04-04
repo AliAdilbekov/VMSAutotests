@@ -22,6 +22,7 @@ export const user = {
     passwordspecsymbol: '!@#$%^&*()_+',
     emailnumber: '1234567890',
     
+    
 }
 export const OrganizationClient = {
     titleOrg:'МВД РК',
